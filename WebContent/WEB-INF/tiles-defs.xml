@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="AdminBaseLayout" template="/WEB-INF/jsp/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/AdminHeader.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/menu.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+
+  <definition name="viewBoard" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: View Board"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/viewBoard.jsp"/>      
+  </definition>
+  
+   <definition name="viewClass" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: View Class"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/viewClass.jsp"/>      
+  </definition>
+  
+  <definition name="viewSubjects" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: View Subject"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/viewSubjects.jsp"/>      
+  </definition>
+  
+  <definition name="viewChapters" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: View Chapters"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/viewChapters.jsp"/>      
+  </definition>
+  
+  <definition name="AdminLogin" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: Login"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/AdminLogin.jsp"/>      
+  </definition>
+  
+  <definition name="extHome" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court :: Home"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/extHome.jsp"/>      
+  </definition>
+  
+  <definition name="userModify" extends="AdminBaseLayout">
+      <put-attribute name="header" value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/userModify.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="RegisterUser" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: Register User"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/RegisterUser.jsp"/>  
+       <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>    
+  </definition>
+  
+  <definition name="viewUploadedContents" extends="AdminBaseLayout">
+      <put-attribute name="title"  value="Class Court Admin :: View Uploaded Content"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/viewUploadedContent.jsp"/>      
+  </definition>
+  
+  <!-- User pages -->
+  
+  <definition name="UserHome" template="/WEB-INF/jsp/UserBaseLayout.jsp">
+      <put-attribute name="title"  value="Class Court :: Home"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/UserHome.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="viewClassSubjects" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Subjects"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/UserClassSubjects.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserStudyHome" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Study Material"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserNcertSols" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: NCERT Solution"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserTest" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Chapter Wise Test"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserRevision" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Revision Notes"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserBoardPaper" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Board Paper"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  <definition name="UserModelPaper" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Model Test Paper"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/blank.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+    
+  <definition name="viewUploadedChapterContent" extends="UserHome">
+      <put-attribute name="title"  value="Class Court :: Study Material"/>
+      <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/jsp/UserChapterMenu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/jsp/ChapterUploads.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+  </definition>
+  
+  
+  
+  
+</tiles-definitions>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.directwebremoting.org/schema/spring-dwr
+       http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+
+
+ <!--  <dwr:configuration>
+    <dwr:convert type="bean" class="com.tanwar.classcourt.bo.ClassBO" />
+  </dwr:configuration>
+  
+  <dwr:controller id="dwrController" debug="true" />
+
+  <bean id="dwrService" class="com.tanwar.classcourt.dwr.DWRService">
+  <property name="classDAO" ref="classDAO" />
+    <dwr:remote javascript="dwrService">
+      <dwr:include method="getAllClass" />   
+    </dwr:remote>
+  </bean>  
+ -->
+ 
+ <bean id="dwrService" class="com.tanwar.classcourt.dwr.DWRService">
+  <property name="classService" ref="classService" />
+  </bean>  
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://pemysql01.365techsupport.com:3306/I-87620_court</value>
+		</property>
+		<property name="username">
+			<value>ccourt</value>
+		</property>
+		<property name="password">
+			<value>amar@123</value>
+		</property><!--
+		<property name="initialSize" value="1" />
+		<property name="maxActive" value="32" />
+	--></bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.tanwar.classcourt.bo.BoardBO</value>
+				<value>com.tanwar.classcourt.bo.ClassBO</value>
+				<value>com.tanwar.classcourt.bo.SubjectBO</value>
+				<value>com.tanwar.classcourt.bo.UserBO</value>
+				<value>com.tanwar.classcourt.bo.ChapterBO</value>
+				<value>com.tanwar.classcourt.bo.QuestionBO</value>
+				<value>com.tanwar.classcourt.bo.RevisionNotesBO</value>
+				<value>com.tanwar.classcourt.bo.StudyMaterialBO</value>
+				<value>com.tanwar.classcourt.bo.SyllabusBO</value>
+				<value>com.tanwar.classcourt.bo.VideoMasterBO</value>
+				<value>com.tanwar.classcourt.bo.UploadContentBO</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- DAO mapping: Start -->
+	<bean id="boardDAO" class="com.tanwar.classcourt.dao.impl.BoardDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="classDAO" class="com.tanwar.classcourt.dao.impl.ClassDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="subjectDAO" class="com.tanwar.classcourt.dao.impl.SubjectDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="chapterDAO" class="com.tanwar.classcourt.dao.impl.ChapterDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userDAO" class="com.tanwar.classcourt.dao.impl.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="uploadDAO" class="com.tanwar.classcourt.dao.impl.UploadedContentDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="registerDAO" class="com.tanwar.classcourt.dao.impl.RegisterDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- DAO mapping: End-->
+
+	<!-- Service mapping: Start -->
+	<bean id="boardService" class="com.tanwar.classcourt.service.impl.BoardServiceImpl">
+		<property name="boardDAO" ref="boardDAO" />
+	</bean>
+	<bean id="classService" class="com.tanwar.classcourt.service.impl.ClassServiceImpl">
+		<property name="classDAO" ref="classDAO" />
+	</bean>
+	<bean id="subjectService" class="com.tanwar.classcourt.service.impl.SubjectServiceImpl">
+		<property name="subjectDAO" ref="subjectDAO" />
+	</bean>
+	<bean id="chapterService" class="com.tanwar.classcourt.service.impl.ChapterServiceImpl">
+		<property name="chapterDAO" ref="chapterDAO" />
+	</bean>
+	<bean id="userService" class="com.tanwar.classcourt.service.impl.UserServiceImpl">
+		<property name="userDAO" ref="userDAO" />
+	</bean>
+	<bean id="uploadService"
+		class="com.tanwar.classcourt.service.impl.UploadedContentServiceImpl">
+		<property name="uploadDAO" ref="uploadDAO" />
+	</bean>
+	<bean id="registerService" class="com.tanwar.classcourt.service.impl.RegisterServiceImpl">
+		<property name="registerDAO" ref="registerDAO" />
+	</bean>
+
+	<!-- Service mapping: End-->
+
+
+	<!-- Controller mapping: Start -->
+	<bean id="boardController" class="com.tanwar.classcourt.controller.BoardController">
+		<property name="boardService" ref="boardService" />
+	</bean>
+	<bean id="classController" class="com.tanwar.classcourt.controller.ClassController">
+		<property name="classService" ref="classService" />
+	</bean>
+	<bean id="subjectController" class="com.tanwar.classcourt.controller.SubjectController">
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+	<bean id="chapterController" class="com.tanwar.classcourt.controller.ChapterController">
+		<property name="chapterService" ref="chapterService" />
+	</bean>
+	<bean id="userController" class="com.tanwar.classcourt.controller.UserController">
+		<property name="userService" ref="userService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="boardService" ref="boardService" />
+	</bean>
+	<bean id="uploadController"
+		class="com.tanwar.classcourt.controller.UploadContentController">
+		<property name="uploadService" ref="uploadService" />
+	</bean>
+	<bean id="registerController" class="com.tanwar.classcourt.controller.RegisterController">
+		<property name="registerService" ref="registerService" />
+	</bean>
+
+	<!-- Controller mapping: End-->
+
+</beans>

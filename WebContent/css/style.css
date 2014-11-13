@@ -1,0 +1,73 @@
+.leftnav-a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 15px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #62459b;
+	text-align: left;
+	text-indent: 4px;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	list-style-position: inside;
+	list-style-image: url(../dolphin/image/r1.gif);
+	width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+
+.leftnav-a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #0066CC;
+	text-align: left;
+	text-indent: 4px;
+	float: left;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FFFFFF;
+	list-style-position: inside;
+	list-style-image: url(../dolphin/image/r1.gif);
+	width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+#style {
+}
+.link {
+	text-decoration: none;
+	color:#c72828;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: 15px;
+}
+
+.link:hover {
+	text-decoration: none;
+	color:#1C408E;
+}
+.catbg {
+	background-image: url(file:///D|/Freelaincing/dolphin%20batteries/dolphin/Html/images/dolphin_03.jpg);
+	background-repeat: no-repeat;
+}
+templatemo_content h2 {
+	color: #3a5909;
+	font-size: 24px;
+	padding: 0 0 60px 20px;
+*
+; 	background-image: url(images/new_home/product-range.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
